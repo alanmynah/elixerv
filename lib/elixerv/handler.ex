@@ -35,6 +35,10 @@ defmodule Elixerv.Handler do
     %Conv{conv | status_code: 200, resp_body: "Paddington, Winnie the Pooh, Rupert"}
   end
 
+  def route(%Conv{method: "POST", path: "/bears"} = conv) do
+    %Conv{conv | status_code: 201, resp_body: "Created a #{conv.query_params["type"]} bear called #{conv.query_params["name"]}"}
+  end
+
   def route(%Conv{method: "GET", path: "/bears/new"} = conv) do
     get_page("form.html")
     |> handle_file(conv)

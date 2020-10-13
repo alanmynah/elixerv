@@ -1,5 +1,13 @@
 defmodule Elixerv.Conv do
-  defstruct [method: "", path: "", resp_body: "", status_code: nil]
+  defstruct [
+    method: "",
+    path: "",
+    query_params: %{},
+    headers: %{},
+    body: "",
+    resp_body: "",
+    status_code: nil
+  ]
 
   def full_status(status_code) do
     "#{status_code} #{to_reason_phrase(status_code)}"
