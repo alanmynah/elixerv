@@ -34,11 +34,6 @@ defmodule Elixerv.Parser do
   end
 
   defp parse_headers([top | tail], headers) do
-    # get a header
-    # split
-    # store in a map
-    # recurse
-    # catch the empty one
     [key, value] = top |> String.split(": ")
     headers = Map.put(headers, key, value)
     parse_headers(tail, headers)
